@@ -27,7 +27,7 @@ if (CONFIG.app == "production") {
 if (CONFIG.app == "development") {
   CONFIG.db_dialect = process.env.DB_DIALECT || "mysql";
   CONFIG.db_host =
-    process.env.DB_HOST || "custodiadev.c1esr2rq5cyn.eu-west-3.rds.amazonaws.com";
+    process.env.DB_HOST || "db2.cndxpjemi8sm.us-east-1.rds.amazonaws.com";
   CONFIG.db_port = process.env.DB_PORT || "3306";
   CONFIG.db_name = process.env.DB_NAME || "custodiaonline";
   CONFIG.db_user = process.env.DB_USER || "nextcloudmaster";
@@ -36,13 +36,13 @@ if (CONFIG.app == "development") {
   CONFIG.api_password = "custodiaonline2019!";
   CONFIG.baseURLapi =
     process.env.API_URL ||
-    "http://ec2-35-181-50-167.eu-west-3.compute.amazonaws.com:8080/remote.php/dav/files/nextcloud/";
+    "http://ec2-100-25-26-116.compute-1.amazonaws.com:8080/remote.php/dav/files/nextcloud/";
   CONFIG.baseURLGroups =
     process.env.API_GROUPS ||
-    "http://ec2-35-181-50-167.eu-west-3.compute.amazonaws.com:8080/ocs/v1.php/cloud/groups";
+    "http://ec2-100-25-26-116.compute-1.amazonaws.com:8080/ocs/v1.php/cloud/groups";
   CONFIG.baseURLFileSharing =
     process.env.API_FILESHARE ||
-    "http://ec2-35-181-50-167.eu-west-3.compute.amazonaws.com:8080/ocs/v2.php/apps/files_sharing/api/v1/shares?";
+    "http://ec2-100-25-26-116.compute-1.amazonaws.com:8080/ocs/v2.php/apps/files_sharing/api/v1/shares?";
 }
 if (CONFIG.app == "local") {
   CONFIG.db_dialect = process.env.DB_DIALECT || "mysql";
