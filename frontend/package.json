@@ -1,0 +1,57 @@
+{
+  "name": "custonline",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@date-io/date-fns": "^1.1.0",
+    "@devexpress/dx-grid-core": "^1.11.1",
+    "@devexpress/dx-react-core": "^1.11.1",
+    "@devexpress/dx-react-grid": "^1.11.1",
+    "@devexpress/dx-react-grid-material-ui": "^1.11.1",
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.1",
+    "date-fns": "^2.0.0-alpha.27",
+    "downloadjs": "^1.4.7",
+    "file-saver": "^2.0.1",
+    "image-resizer-js": "^1.2.1",
+    "jszip": "^3.2.1",
+    "jszip-utils": "0.0.2",
+    "lodash": "^4.17.15",
+    "material-ui-dropzone": "^2.3.5",
+    "material-ui-pickers": "^2.2.4",
+    "mime-types": "^2.1.24",
+    "moment": "^2.24.0",
+    "password-validator": "^4.1.1",
+    "react": "^16.8.4",
+    "react-addons-update": "^15.6.2",
+    "react-color": "^2.17.3",
+    "react-dom": "^16.8.4",
+    "react-dropzone": "^10.1.5",
+    "react-file-viewer": "^1.1.0",
+    "react-keyboard-event-handler": "^1.5.1",
+    "react-notifications-component": "^1.1.1",
+    "react-read-pdf": "^2.0.9",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "react-spinners-kit": "^1.9.0",
+    "react-sweet-progress": "^1.1.2",
+    "styled-components": "^4.2.0",
+    "swagger-ui": "^3.23.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

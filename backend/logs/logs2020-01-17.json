@@ -1,0 +1,102 @@
+{"level":"info","timestamp":"2020-01-17T10:36:08.840Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:39:40.963Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:40:12.506Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:40:16.052Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:41:14.907Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:42:31.601Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:42:36.904Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:42:36.904Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:42:45.649Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:46:59.299Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:47:05.462Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:47:11.283Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:47:22.230Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:47:48.986Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:47:51.652Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T10:59:47.562Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T10:59:54.506Z"}
+{"level":"error","message":"Hubo un error al intentar guardar el archivo, Ya existe un fichero con ese nombre.  Cámbialo y reintenta","user_role":"user","user_id":null,"timestamp":"2020-01-17T11:00:06.237Z","request":"createFile()","request_status":"fail","request_data":{"department_id":230,"values":{"tiburones":"","pulpos":"3"}}}
+{"level":"info","timestamp":"2020-01-17T11:18:07.641Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T11:18:54.756Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:19:05.291Z"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T11:19:34.896Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: blanco"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: 987"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T11:27:16.531Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: uni"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","timestamp":"2020-01-17T11:27:42.553Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:27:49.119Z"}
+{"level":"info","timestamp":"2020-01-17T11:28:33.355Z","message":"Se ha borrado correctamente el fichero eye (100).pdf"}
+{"level":"info","timestamp":"2020-01-17T11:28:34.339Z","message":"Se ha borrado correctamente el fichero eye (91).pdf"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T11:28:49.258Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: yuu"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","timestamp":"2020-01-17T11:37:25.032Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T11:38:16.365Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:41:12.883Z"}
+{"level":"info","timestamp":"2020-01-17T11:41:40.332Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:41:44.938Z"}
+{"level":"info","timestamp":"2020-01-17T11:46:14.084Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:46:21.626Z"}
+{"level":"info","timestamp":"2020-01-17T11:46:56.484Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:46:59.517Z"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:48:05.804Z"}
+{"level":"info","timestamp":"2020-01-17T11:48:12.162Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T11:48:16.228Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T11:48:22.569Z"}
+{"level":"info","timestamp":"2020-01-17T11:51:00.595Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T12:02:11.302Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T12:02:21.506Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T12:02:55.833Z"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:03:19.803Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: "}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:04:25.349Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: "}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:04:50.558Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: "}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","timestamp":"2020-01-17T12:04:55.764Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T12:05:53.684Z","message":"Se ha borrado correctamente el fichero eye (61).pdf"}
+{"level":"info","timestamp":"2020-01-17T12:05:54.676Z","message":"Se ha borrado correctamente el fichero eye (55).pdf"}
+{"level":"info","timestamp":"2020-01-17T12:05:55.680Z","message":"Se ha borrado correctamente el fichero eye (100).pdf"}
+{"level":"info","timestamp":"2020-01-17T12:05:56.685Z","message":"Se ha borrado correctamente el fichero eye (71).pdf"}
+{"level":"info","timestamp":"2020-01-17T12:07:11.837Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T12:07:14.941Z"}
+{"level":"info","timestamp":"2020-01-17T12:07:46.101Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T12:07:50.940Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T12:07:53.853Z"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:08:02.454Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: "}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","timestamp":"2020-01-17T12:13:28.786Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:13:49.959Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: "}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","timestamp":"2020-01-17T12:20:57.751Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","timestamp":"2020-01-17T12:22:04.331Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:22:14.951Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: "}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","timestamp":"2020-01-17T12:23:40.119Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:23:50.418Z","message":"Insertado el fichero [object Object]","uploadedBy":"admin"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: "}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: "}
+{"level":"info","timestamp":"2020-01-17T12:29:33.459Z","message":"App funcionando [DEVELOPMENT]"}
+{"level":"info","message":"Administrador custodiaonline.gestion@gmail.com ha accedido a la aplicación","timestamp":"2020-01-17T12:30:04.696Z"}
+{"level":"info","message":"Fichero creado y guardado exitosamente"}
+{"level":"info","timestamp":"2020-01-17T12:30:19.567Z","message":"Insertado el fichero [object Object]","uploadedBy":"custodiaonline.gestion@gmail.com"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 80 valor: aaa"}
+{"level":"info","message":"Insertado en field_file_xref con éxito campo: 81 valor: 3"}

@@ -1,0 +1,475 @@
+definitions:
+  LoginData:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+      - email
+      - password
+
+  ForgottenEmail:
+    type: object
+    properties:
+      email:
+        type: string
+
+    required:
+      - email
+
+  AuthorizationResponse:
+    type: object
+    properties:
+      token:
+        type: string
+    required:
+      - token
+
+  Email:
+    type: object
+    properties:
+      email:
+        type: string
+    required:
+      - email
+  Client:
+    type: object
+    properties:
+      name:
+        type: string
+      last_names:
+        type: string
+      email:
+        type: string
+      company:
+        type: string
+      planId:
+        type: number
+      cifnif:
+        type: string
+      color:
+        type: string
+      avatar:
+        type: string
+      departments:
+        type: array
+        items:
+          $ref: "#/definitions/Department"
+    required:
+      - name
+      - last_names
+      - email
+      - planId
+      - cifnif
+
+  User:
+    type: object
+    properties:
+      name:
+        type: string
+      last_names:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      client_id:
+        type: number
+      department_id:
+        type: number
+      status:
+        type: string
+      cifnif:
+        type: string
+
+    required:
+      - name
+      - last_names
+      - email
+      - client_id
+      - department_id
+      - status
+      - cifnif
+
+  Admin:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+      - email
+
+  Plan:
+    type: object
+    properties:
+      id:
+        type: number
+      description:
+        type: string
+      quote:
+        type: number
+    required:
+      - description
+      - quote
+
+  Field:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      type:
+        type: string
+      is_required:
+        type: string
+      is_visible:
+        type: string
+    required:
+      - id
+
+  Folder:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Folder name
+    required:
+      - name
+
+  File:
+    type: object
+    properties:
+      name:
+        type: string
+        description: File name
+      extension:
+        type: string
+        description: File extension type
+
+  #Workaround to arbitrary amount of file uploads
+  # UploadFile:
+  #   type: array
+  #   items:
+  #     type: string
+  #     format: binary
+
+  NewDepartment:
+    type: object
+    properties:
+      name:
+        type: string
+        description: department name
+      client_id:
+        type: number
+        description: client identifier
+    required:
+      - name
+      - client_id
+
+  UpdateAdmin:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+
+  UpdateClient:
+    type: object
+    properties:
+      name:
+        type: string
+      last_names:
+        type: string
+      email:
+        type: string
+      company:
+        type: string
+      password:
+        type: string
+      planId:
+        type: number
+      cifnif:
+        type: string
+      avatar:
+        type: string
+      color:
+        type: string
+      storage_in_use:
+        type: number
+        format: float
+      departments:
+        type: array
+        items:
+          $ref: "#/definitions/GetDepartmentResponse"
+
+  UpdateUser:
+    type: object
+    properties:
+      name:
+        type: string
+      last_names:
+        type: string
+      email:
+        type: string
+      client_id:
+        type: number
+      department_id:
+        type: number
+      status:
+        type: string
+      cifnif:
+        type: string
+
+  GetAdminResponse:
+    type: object
+    properties:
+      id:
+        type: number
+        description: identifier
+      email:
+        type: string
+      password:
+        type: string
+
+    required:
+      - id
+      - email
+
+  GetClientResponse:
+    type: object
+    properties:
+      id:
+        type: number
+        description: identifier
+      name:
+        type: string
+      last_names:
+        type: string
+      email:
+        type: string
+      company:
+        type: string
+      planId:
+        type: number
+      storage_in_use:
+        type: number
+        format: float
+      cifnif:
+        type: string
+      avatar:
+        type: string
+      color:
+        type: string
+      departments:
+        type: array
+        items:
+          $ref: "#/definitions/GetDepartmentResponse"
+    required:
+      - id
+      - name
+      - last_names
+      - email
+      - planId
+      - cifnif
+
+  GetClientCustomizationResponse:
+    type: object
+    properties:
+      color:
+        type: number
+      avatar:
+        type: string
+
+    required:
+      - color
+      - avatar
+
+  GetUserResponse:
+    type: object
+    properties:
+      id:
+        type: number
+        description: identifier
+      name:
+        type: string
+      last_names:
+        type: string
+      email:
+        type: string
+      client_id:
+        type: number
+      department_id:
+        type: number
+      status:
+        type: string
+      cifnif:
+        type: string
+
+    required:
+      - id
+      - name
+      - last_names
+      - email
+      - client_id
+      - department_id
+      - status
+      - cifnif
+
+  AcceptUser:
+    type: object
+    properties:
+      accept:
+        type: boolean
+        description: accept specific user
+    required:
+      - accept
+
+  GetDepartmentResponse:
+    type: object
+    properties:
+      id:
+        type: number
+        description: identifier
+      name:
+        type: string
+        description: department name
+      client:
+        type: number
+        description: department client owner
+      fields:
+        type: array
+        items:
+          $ref: "#/definitions/GetFieldResponse"
+
+    required:
+      - id
+      - name
+
+  Department:
+    type: object
+    properties:
+      id:
+        type: number
+        description: identifier
+      name:
+        type: string
+        description: department name
+      fields:
+        type: array
+        items:
+          $ref: "#/definitions/Field"
+
+    required:
+      - id
+      - name
+
+  GetPlanResponse:
+    type: object
+    properties:
+      id:
+        type: number
+        description: identifier
+      description:
+        type: string
+        description: name of the plan
+      capacity:
+        type: number
+        description: number of gigs of the plan
+    required:
+      - id
+      - description
+      - capacity
+
+  GetFieldResponse:
+    required:
+      - id
+      - name
+      - type
+      - is_required
+      - is_visible
+
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      type:
+        type: string
+      is_required:
+        type: string
+      is_visible:
+        type: string
+      department_id:
+        type: number
+
+  GetFieldsListResponse:
+    required:
+      - fields
+    properties:
+      fields:
+        type: array
+        items:
+          $ref: "#/definitions/Field"
+
+  GetListClientsResponse:
+    required:
+      - clients
+    properties:
+      clients:
+        type: array
+        items:
+          $ref: "#/definitions/GetClientResponse"
+
+  GetListAdminsResponse:
+    required:
+      - admins
+    properties:
+      admins:
+        type: array
+        items:
+          $ref: "#/definitions/GetAdminResponse"
+
+  GetFilesListResponse:
+    required:
+      - files
+    properties:
+      files:
+        type: array
+        items:
+          $ref: "#/definitions/File"
+
+  GetPlansListResponse:
+    required:
+      - plans
+    properties:
+      plans:
+        type: array
+        items:
+          $ref: "#/definitions/GetPlanResponse"
+
+  DeleteMessage:
+    properties:
+      message:
+        type: string
+    required:
+      - message
+
+  UpdateMessage:
+    properties:
+      message:
+        type: string
+    required:
+      - message
+
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

@@ -1,0 +1,1056 @@
+paths:
+  /authenticate:
+    x-swagger-router-controller: auth.controller
+    post:
+      description: Authenticate client/user
+      operationId: authenticate
+      parameters:
+        - in: body
+          name: loginData
+          description: Input data in login
+          schema:
+            $ref: "#/definitions/LoginData"
+
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/AuthorizationResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /recoverpassword:
+    x-swagger-router-controller: auth.controller
+    post:
+      description: oops! i forgot my password
+      operationId: recoverPassword
+      parameters:
+        - in: body
+          name: loginData
+          description: Input data in login
+          schema:
+            $ref: "#/definitions/ForgottenEmail"
+
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/AuthorizationResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /admins:
+    x-swagger-router-controller: admin.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Returns all admins to the caller
+      # used as the method name of the controller
+      operationId: getAdmins
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetListAdminsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Add a new admin
+      operationId: createAdmin
+      parameters:
+        - in: body
+          name: admin
+          description: the new admin to create
+          schema:
+            $ref: "#/definitions/Admin"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetAdminResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /admin/{id}:
+    x-swagger-router-controller: admin.controller
+    get:
+      description: Return specific admin by ID
+      operationId: getAdminById
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetAdminResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    put:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Return specific admin by ID
+      operationId: updateAdminById
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+        - name: admin
+          description: The admin to update
+          in: body
+          schema:
+            $ref: "#/definitions/UpdateAdmin"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetAdminResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    delete:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: dectivate an admin
+      operationId: deleteAdminById
+      parameters:
+        - name: id
+          description: admin id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/DeleteMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /emailrepetition:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: client.controller
+    post:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+      description: Returns if an email account is already in use in the application
+      # used as the method name of the controller
+      operationId: CheckEmailRepetition
+      parameters:
+        - in: body
+          name: email
+          description: Email to compare
+          schema:
+            $ref: "#/definitions/Email"
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetListClientsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /clients:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: client.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Returns all clients to the caller
+      # used as the method name of the controller
+      operationId: getClients
+      parameters:
+        - name: cifnif
+          type: string
+          in: query
+          required: false
+        - name: sort
+          type: string
+          in: query
+          required: false
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetListClientsResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Add a new client
+      operationId: createClient
+      parameters:
+        - in: body
+          name: client
+          description: the new client to create
+          schema:
+            $ref: "#/definitions/Client"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetClientResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /client/{id}:
+    x-swagger-router-controller: client.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+      description: Return specific client by ID
+      operationId: getClientById
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+        - name: fields
+          type: string
+          in: query
+          required: false
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetClientResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    put:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+      description: Update specific client by ID
+      operationId: updateClientById
+      parameters:
+        - name: id
+          description: client id
+          type: number
+          in: path
+          required: true
+        - name: client
+          description: The client to update
+          in: body
+          schema:
+            $ref: "#/definitions/UpdateClient"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    delete:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: dectivate a client
+      operationId: deactivateClientById
+      parameters:
+        - name: id
+          description: client id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/DeleteMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /client/{id}/customizationdata:
+    x-swagger-router-controller: client.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+        - user
+      description: Return color and logo from specific client by ID
+      operationId: getClientCustomization
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetClientCustomizationResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    #----user endpoints
+
+  /users:
+    x-swagger-router-controller: user.controller
+    post:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+      description: Add a new User
+      operationId: createUser
+      parameters:
+        - in: body
+          name: user
+          description: the new user to create
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetUserResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /user/{id}:
+    x-swagger-router-controller: user.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - user
+      description: Return specific user by ID
+      operationId: getUserById
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetUserResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    put:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - user
+      description: Update specific user by id
+      operationId: updateUserById
+      parameters:
+        - name: id
+          description: user id
+          type: number
+          in: path
+          required: true
+        - name: user
+          description: The user to update
+          in: body
+          schema:
+            $ref: "#/definitions/UpdateUser"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    delete:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Delete an specific user by id
+      operationId: deleteUserById
+      parameters:
+        - name: id
+          description: user id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/DeleteMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /user/accept/{id}:
+    x-swagger-router-controller: user.controller
+    put:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Accept specific pending user.
+      operationId: acceptUserById
+      parameters:
+        - name: id
+          description: user id
+          type: number
+          in: path
+          required: true
+        - name: accept
+          description: Enter true for user approval
+          in: body
+          schema:
+            $ref: "#/definitions/AcceptUser"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /fields/{id}:
+    x-swagger-router-controller: field.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+        - user
+      description: Return specific plan by ID
+      operationId: getFieldsByDepartments
+      parameters:
+        - name: id
+          description: department id to fetch fields
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetFieldsListResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /departments:
+    x-swagger-router-controller: department.controller
+    post:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Add a new department
+      operationId: createDepartment
+      parameters:
+        - in: body
+          name: department
+          description: the new department to create
+          schema:
+            $ref: "#/definitions/NewDepartment"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetDepartmentResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /department/{id}:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: department.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+        - user
+      description: Returns all clients to the caller
+      # used as the method name of the controller
+      operationId: getDepartmentById
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetDepartmentResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    delete:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Delete a Department
+      operationId: deleteDepartmentById
+      parameters:
+        - name: id
+          description: Department id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/DeleteMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /plans:
+    x-swagger-router-controller: plan.controller
+    post:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Add new plan
+      operationId: createPlan
+      parameters:
+        - in: body
+          name: plan
+          description: the new plan to be created
+          schema:
+            $ref: "#/definitions/Plan"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetPlanResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Returns all clients to the caller
+      # used as the method name of the controller
+      operationId: getPlans
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GetPlansListResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /plan/{id}:
+    x-swagger-router-controller: plan.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Return specific plan by ID
+      operationId: getPlanById
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetPlanResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    put:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Update specific plan by ID
+      operationId: updatePlanById
+      parameters:
+        - name: id
+          description: plan id
+          type: number
+          in: path
+          required: true
+        - name: plan
+          description: The plan to update
+          in: body
+          schema:
+            $ref: "#/definitions/Plan"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    delete:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: delete plan a client
+      operationId: deletePlanById
+      parameters:
+        - name: id
+          description: plan id
+          type: number
+          in: path
+          required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/Plan"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /folder:
+    x-swagger-router-controller: folder.controller
+    post:
+      security:
+        - Bearer: []
+
+      x-security-scopes:
+        - admin
+      description: Add a new folder
+      operationId: createFolder
+      parameters:
+        - in: body
+          name: folder
+          description: create a new folder
+          schema:
+            $ref: "#/definitions/Folder"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /folder/client/{id}:
+    x-swagger-router-controller: folder.controller
+    delete:
+      description: Delete a folder
+      operationId: deleteFolder
+      parameters:
+        - name: id
+          type: number
+          description: client id
+          in: path
+          required: true
+        - name: folder
+          description: send "root" for base folder
+          type: string
+          in: query
+          required: false
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/DeleteMessage"
+
+    post:
+      description: Add a new folder
+      operationId: createFolderById
+      parameters:
+        - name: id
+          type: number
+          in: path
+          description: Client id
+          required: true
+        - in: body
+          name: folder
+          description: create a new folder
+          schema:
+            $ref: "#/definitions/Folder"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /files:
+    x-swagger-router-controller: file.controller
+    post:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Upload a new file to specific user
+      operationId: createFile
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: formData
+          name: information
+          type: string
+          description: file data
+          required: false
+        - in: formData
+          name: files
+          type: file
+          description: file
+          required: false
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/File"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+        - user
+      description: Download  file
+      operationId: getFiles
+      parameters:
+        - name: id
+          type: number
+          in: query
+          required: true
+
+        - name: role
+          type: string
+          in: query
+          required: true
+
+        - name: orderBy
+          description: column to be order by with
+          type: string
+          in: query
+          required: false
+
+        - name: sort
+          description: ASC or DESC
+          type: string
+          in: query
+          required: false
+
+        - name: pageNumber
+          type: number
+          in: query
+          required: false
+
+        - name: pageSize
+          type: number
+          in: query
+          required: false
+
+        - name: name
+          type: string
+          in: query
+          required: false
+
+        - name: fileName
+          type: string
+          in: query
+          required: false
+
+        - name: extension
+          type: string
+          in: query
+          required: false
+
+        - name: clientId
+          type: number
+          in: query
+          required: false
+
+        - name: departmentId
+          type: number
+          in: query
+          required: false
+
+        - name: dateFrom
+          type: string
+          format: date
+          in: query
+          required: false
+
+        - name: dateTo
+          type: string
+          format: date
+          in: query
+          required: false
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/GetFilesListResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  # /BulkUploadFiles:
+  #   $ref: path_bulk_upload.yaml
+
+  /file/download:
+    x-swagger-router-controller: file.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+        - user
+      description: Download a specific file
+      operationId: downloadFile
+      parameters:
+        - name: id
+          type: number
+          in: query
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /file/preview:
+    x-swagger-router-controller: file.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+        - user
+      description: pdf binary preview
+      operationId: previewFile
+      parameters:
+        - name: id
+          type: number
+          in: query
+          required: false
+        - name: page
+          type: number
+          in: query
+          required: false
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swag:
+    x-swagger-router-controller: swagger.controller
+    get:
+      description: swagger json
+      operationId: getSwagger
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /swagger:
+    x-swagger-pipe: swagger_raw
+    #schema definition for swagger ui documentation
+
+  /file/client/{id}:
+    x-swagger-router-controller: file.controller
+    delete:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+      description: Delete a specific file or folder
+      operationId: deleteFile
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/DeleteMessage"
+
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /files/department/{id}:
+    x-swagger-router-controller: file.controller
+    get:
+      security:
+        - Bearer: []
+      x-security-scopes:
+        - admin
+        - client
+        - user
+      description: Get all files from a department
+      operationId: getDepartmentFiles
+      parameters:
+        - name: id
+          type: number
+          in: path
+          required: true
+        - name: orderBy
+          description: column to be order by with
+          type: string
+          in: query
+          required: false
+
+        - name: sort
+          description: ASC or DESC
+          type: string
+          in: query
+          required: false
+
+        - name: pageNumber
+          type: number
+          in: query
+          required: false
+
+        - name: pageSize
+          type: number
+          in: query
+          required: false
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UpdateMessage"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
